@@ -55,7 +55,7 @@ Log-Message "VM '$vmName' stopped."
 Log-Message "Swapping OS disk to snapshot '$snapshotName'."
 
 $snapshot = Get-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName
-$newOsDiskName = "md-$vmName-new-osdisk"
+$newOsDiskName = "md-$vmName-osdisk"
 $osDiskConfig = New-AzDiskConfig -Location $vm.Location -SourceResourceId $snapshot.Id -CreateOption Copy
 $newOsDisk = New-AzDisk -ResourceGroupName $resourceGroupName -DiskName $newOsDiskName -Disk $osDiskConfig
 
